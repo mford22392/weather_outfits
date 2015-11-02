@@ -1,0 +1,36 @@
+<%= form_for(@outfit, url: upload_outfit_path) do |f| %>
+  <% if @outfit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@outfit.errors.count, "error") %> prohibited this outfit from being saved:</h2>
+      <ul>
+      <% @outfit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+  </div>
+  <div class="field">
+    <%= f.label :temp %><br>
+    <%= f.collection_select :temp, Outfit::TEMPERATURES, :to_s, :to_s %>
+  </div>
+  <div class="field">
+    <p>Would you wear this outfit if it were raining?</p>
+    <%= label :yes, 'Yes' %>
+    <%= f.radio_button :rain, true %><br>
+    <%= label :no, 'No' %>
+    <%= f.radio_button :rain, false %><br>
+  </div>
+  <div class="field">
+    <%= f.file_field :image_upload %>
+  </div>
+  <br>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="actions">
+    <%= f.submit 'Upload' %>
+  </div>
+  <br>
+<% end %>
