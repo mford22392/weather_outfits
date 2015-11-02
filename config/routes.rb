@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   root to: 'welcome#index'
   get '/signup' => 'users#new'
+  get '/upload' => 'outfits#new', as: 'upload_outfit'
+  post '/upload' => 'outfits#create', method: 'PATCH'
+
 end
