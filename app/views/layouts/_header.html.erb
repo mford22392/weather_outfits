@@ -1,0 +1,8 @@
+<% if current_user %>
+  Hello, <%= current_user.name %>!
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  Sign up or log in to add an outfit! <br>
+  <%= link_to "Sign Up", signup_path %>
+  <%= link_to "Log In", login_path %>
+<% end %>
