@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2015-11-02 18:05:28 EST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "weather_outfits_development" does not exist
+FATAL:  database "weather_outfits_development" does not exist
