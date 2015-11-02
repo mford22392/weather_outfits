@@ -18,6 +18,20 @@ class OutfitsController < ApplicationController
     end
   end
 
+  def edit
+    @outfit = Outfit.find(params[:id])
+  end
+
+  def update
+    if @outfit.update(outfit_params)
+      flash.alert = "Outfit successfully updated."
+      redirect_to @outfit
+    else
+      flash.now.alert = "Please try again"
+      render 'edit'
+    end
+  end
+
   def show
     @outfit = Outfit.find(params[:id])
   end
