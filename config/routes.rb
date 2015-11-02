@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   get '/signup' => 'users#new'
   get '/upload' => 'outfits#new', as: 'upload_outfit'
-  post '/upload' => 'outfits#create', method: 'PATCH'
-
+  post '/upload' => 'outfits#create'
+  patch '/upload' => 'outfits#create'
 end

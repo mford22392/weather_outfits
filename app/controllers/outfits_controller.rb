@@ -8,13 +8,8 @@ class OutfitsController < ApplicationController
   end
 
   def create
-    raise
-    @outfit = Outfit.new
-    @outfit.name = params[:outfit][:name]
-    @outfit.temp = params[:outfit][:temp]
-    @outfit.rain = params[:outfit][:rain]
-    @outfit.user_id = params[:outfit][:user_id]
-    @outfit.image_upload = params[:image_upload]
+    @outfit = Outfit.create(outfit_params)
+    @outfit.image_upload = params[:outfit][:image_upload]
     if @outfit.save
       redirect_to @outfit
     else
