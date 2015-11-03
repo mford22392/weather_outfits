@@ -12,3 +12,4 @@
 </ul>
 
 <%= link_to "Edit this outfit", edit_outfit_path %>
+<%= link_to "Delete this outfit", "/outfits/#{@outfit.id}", method: :delete %>

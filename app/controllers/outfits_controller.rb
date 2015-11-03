@@ -36,6 +36,12 @@ class OutfitsController < ApplicationController
     @outfit = Outfit.find(params[:id])
   end
 
+  def destroy
+    @outfit = Outfit.find(params[:id])
+    @outfit.destroy
+    redirect_to 'index' 
+  end
+
   private
 
   def outfit_params

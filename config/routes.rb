@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users
-  resources :outfits
+  resources :outfits #, :except => [:destroy]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post '/upload' => 'outfits#create'
   patch '/upload' => 'outfits#create'
   get '/ootd' => 'search#index', as: 'ootd'
+  #delete '/outfits/:id' => 'outfits#destroy', as: 'destroy_outfit'
 end
