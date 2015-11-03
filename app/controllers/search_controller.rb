@@ -5,7 +5,6 @@ class SearchController < ApplicationController
   def index
     @location = params[:location]
     weather = Weather.new(@location)
-    #rain
     @condition = weather.is_raining?
     case weather.temperature
       when 'super hot'
@@ -19,7 +18,7 @@ class SearchController < ApplicationController
       when 'cold'
         @outfit = 'Cold yo'
       else
-        @outfit = 'Brrrrr. Freezing'
+        @outfit = Outfit.freezing_outfit(current_user)
       end
   end
 

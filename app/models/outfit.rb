@@ -12,11 +12,11 @@ class Outfit < ActiveRecord::Base
 
   #Methods to return random outfits from db based on temp range and criteria
 
-  # def self.freezing_outfit?
-  #   Outfit.where()
-  # end
-  
 
-
+  def self.freezing_outfit(current_user)
+    if current_user
+      Outfit.where(id: current_user.id, temp: 'freezing', rain: false).sample
+    end
+  end
 
 end
