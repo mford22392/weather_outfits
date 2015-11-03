@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/upload' => 'outfits#new', as: 'upload_outfit'
   post '/upload' => 'outfits#create'
   patch '/upload' => 'outfits#create'
+  get '/ootd' => 'search#index', as: 'ootd'
 end

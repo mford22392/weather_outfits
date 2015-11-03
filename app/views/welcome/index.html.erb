@@ -1,1 +1,9 @@
 Welcome!
+
+<%= form_tag ootd_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :location, params[:location] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+<% end %>
