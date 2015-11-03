@@ -1,30 +1,41 @@
 class Weather
-  attr_accessor :temp, :rain
+  attr_accessor :temp, :rain, :condition
 
   def initialize(location)
-    @weather_at_location = Barometer.new(location).measure    
-    @temp = @weather_at_location.tomorrow.high.f
-    
+
+    @weather_at_location = Barometer.new(location).measure
+
+    #Current day temperature    
+    @temp = @weather_at_location.today.high.f
+    @condition = @weather_at_location.responses.first.forecast.first.condition
   end
 
   #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
 
   def temperature
     if @temp.to_i > 90
-      "supa hot"
+      "super hot"
     elsif @temp.to_i > 80 
       "hot"
     elsif @temp.to_i > 70
-      'lil warm'
+      'warm'
     elsif @temp.to_i > 60
       'cool'
     elsif @temp.to_i > 40
-      'Cold yo'
+      'cold'
     else
-      'Brrrrr. Freezing'
+      'freezing'
     end
   end
 
-  #Rain, Snow, Temp methods
+  RAIN_KEYWORDS = ['Drizzle', 'Rain', 'Spray', 'Showers', 'Thunderstorm', 'Thunderstorms', 'Squalls']
+
+  def is_raining?
+    rain_check = @condition.split(' ').select do |condition|
+      RAIN_KEYWORDS.any?{|word| condition}
+    end
+    !!rain_check
+  end
+
 
 end

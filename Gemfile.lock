@@ -55,6 +55,8 @@ GEM
       nori
       tzinfo (>= 0.3.14)
       virtus (>= 1.0.0)
+    barometer-yahoo (0.0.1)
+      barometer (~> 0.9.7)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -187,6 +189,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (< 2.0)
   barometer
+  barometer-yahoo
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)

@@ -1,21 +1,22 @@
 
 class SearchController < ApplicationController
+   #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
 
   def index
     @location = params[:location]
     weather = Weather.new(@location)
     #rain
-
+    @condition = weather.is_raining?
     case weather.temperature
-      when 'supa hot'
+      when 'super hot'
         @outfit = 'supa hot'
       when "hot"
         @outfit = 'hot'
-      when 'lil warm'
+      when 'warm'
         @outfit = 'lil warm'
       when 'cool'
         @outfit = 'cool'
-      when 'Cold yo'
+      when 'cold'
         @outfit = 'Cold yo'
       else
         @outfit = 'Brrrrr. Freezing'
