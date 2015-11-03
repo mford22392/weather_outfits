@@ -19,4 +19,70 @@ class Outfit < ActiveRecord::Base
     end
   end
 
+  def self.freezing_rain_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'freezing', rain: true).sample
+    end
+  end
+
+  def self.cold_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'cold', rain: false).sample
+    end
+  end
+
+  def self.cold_rain_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'cold', rain: true).sample
+    end
+  end
+
+  def self.cool_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'cool', rain: false).sample
+    end
+  end
+
+  def self.cool_rain_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'cool', rain: true).sample
+    end
+  end
+
+  def self.warm_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'warm', rain: false).sample
+    end
+  end
+
+  def self.warm_rain_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'warm', rain: true).sample
+    end
+  end
+
+  def self.hot_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'hot', rain: false).sample
+    end
+  end
+  
+  def self.hot_rain_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'hot', rain: true).sample
+    end
+  end
+      
+  def self.super_hot_rain_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'super hot', rain: true).sample
+    end
+  end
+      
+  def self.super_hot_outfit(current_user)
+    if current_user
+      Outfit.where(user_id: current_user.id, temp: 'super hot', rain: false).sample
+    end
+  end
+
 end

@@ -8,15 +8,15 @@ class SearchController < ApplicationController
     @condition = weather.is_raining?
     case weather.temperature
       when 'super hot'
-        @outfit = 'supa hot'
+        @outfit = Outfit.super_hot_outfit(current_user)
       when "hot"
-        @outfit = 'hot'
+        @outfit = Outfit.hot_outfit(current_user)
       when 'warm'
-        @outfit = 'lil warm'
+        @outfit = Outfit.warm_outfit(current_user)
       when 'cool'
-        @outfit = 'cool'
+        @outfit = Outfit.cool_outfit(current_user)
       when 'cold'
-        @outfit = 'Cold yo'
+        @outfit = Outfit.cold_outfit(current_user)
       else
         @outfit = Outfit.freezing_outfit(current_user)
       end
