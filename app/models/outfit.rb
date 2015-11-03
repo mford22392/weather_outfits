@@ -15,7 +15,7 @@ class Outfit < ActiveRecord::Base
 
   def self.freezing_outfit(current_user)
     if current_user
-      Outfit.where(id: current_user.id, temp: 'freezing', rain: false).sample
+      Outfit.where(user_id: current_user.id, temp: 'freezing', rain: false).sample
     end
   end
 
