@@ -1,1 +1,14 @@
-<%= image_tag @outfit.image_upload.url %>
+<!-- <img src= '<%= @outfit.image_upload.url %>' > -->
+
+<p><b>Outfit Name: </b> <%= @outfit.name %> </p>
+<%= image_tag @outfit.image_upload.url(:medium)%>
+
+<p><b> Outfit Details: </b></p>
+<ul>
+<li>This outfit is for <%= @outfit.temp %> weather.</li>
+<% if @outfit.rain == true %>
+  <li> This is a good outfit for the rain. </li>
+<% end %>
+</ul>
+
+<%= link_to "Edit this outfit", edit_outfit_path %>

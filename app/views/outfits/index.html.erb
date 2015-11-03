@@ -1,3 +1,5 @@
-<%= @outfits.each do |outfit| %>
-  <%= outfit.image_upload %>
+<% @outfits.each do |outfit| %>
+  <a href="/outfits/<%=outfit.id%>">
+    <img src="<%=outfit.image_upload.url(:medium) %>" >
+  </a>
 <% end %>
