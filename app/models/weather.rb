@@ -1,5 +1,5 @@
 class Weather
-  attr_accessor :temp, :rain, :condition
+  attr_accessor :temp, :rain, :condition, :low_temp
 
   def initialize(location)
 
@@ -7,6 +7,7 @@ class Weather
 
     #Current day temperature    
     @temp = @weather_at_location.today.high.f
+    @low_temp = @weather_at_location.today.low.f
     @condition = @weather_at_location.responses.first.forecast.first.icon
   end
 

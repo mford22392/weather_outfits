@@ -6,6 +6,8 @@ class SearchController < ApplicationController
     @location = params[:location] || current_user.location.to_s
     weather = Weather.new(@location)
     @condition = weather.is_raining?
+    @high_temp = weather.temp
+    @low_temp = weather.low_temp
     @gender = params[:gender] || current_user.gender
     @outfit = Outfit.outfit(current_user, weather.temperature, @condition, @gender)
   end

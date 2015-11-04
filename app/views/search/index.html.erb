@@ -1,6 +1,16 @@
-<h1> Hope this works </h1>
+<h1> Today's weather in <%= @location %>: </h1>
+  <ul>
+    <li> High of <%= @high_temp %>°F </li>
+    <li> Low of <%= @low_temp %>°F </li>
+    <% if @condition == true %>
+      <li> Rain is in the forecast </li>
+    <% end %>
+  </ul>
 
-<%= @location %>
-<%= image_tag @outfit.image_upload.url(:medium)%>
-<%= @high_temp %>
-<%= @condition %>
+<h1> Here's your outfit:</h1><br>
+
+<%= image_tag @outfit.image_upload.url(:medium)%><br><br>
+
+<p> Not your location? Search for a different one: </p>
+<%= render 'search_form' %>
+
