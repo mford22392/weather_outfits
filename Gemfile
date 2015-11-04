@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'postgresql'
 gem 'barometer'
 gem 'barometer-yahoo'
+gem 'tweetstream'
+gem 'area'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

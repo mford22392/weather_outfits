@@ -3,6 +3,7 @@ class SearchController < ApplicationController
    #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
 
   def index
+    #client = Adapters::TwitterAdapter.new
     @location = params[:location] || current_user.location.to_s
     weather = Weather.new(@location)
     @condition = weather.is_raining?
@@ -10,6 +11,7 @@ class SearchController < ApplicationController
     @low_temp = weather.low_temp
     @gender = params[:gender] || current_user.gender
     @outfit = Outfit.outfit(current_user, weather.temperature, @condition, @gender)
+    #@tweets = client.track("Pink Floyd")
   end
 
     # if !@condition 

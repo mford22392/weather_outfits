@@ -1,4 +1,8 @@
-<h1> Today's weather in <%= @location %>: </h1>
+<% if @location == @location.to_i.to_s %>
+  <h1> Today's weather in <%= @location.to_region(city: true) %>: </h1>
+<% else %>
+  <h1> Today's weather in <%= @location %>: </h1>
+<% end %>
   <ul>
     <li> High of <%= @high_temp %>°F </li>
     <li> Low of <%= @low_temp %>°F </li>
@@ -13,4 +17,5 @@
 
 <p> Not your location? Search for a different one: </p>
 <%= render 'search_form' %>
+
 
