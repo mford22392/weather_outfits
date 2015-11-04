@@ -3,11 +3,10 @@ class SearchController < ApplicationController
    #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
 
   def index
-    @location = params[:location]
+    @location = params[:location] || current_user.location.to_s
     weather = Weather.new(@location)
     @condition = weather.is_raining?
-    @gender = params[:gender]
-
+    @gender = params[:gender] || current_user.gender
     @outfit = Outfit.outfit(current_user, weather.temperature, @condition, @gender)
   end
 
