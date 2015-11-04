@@ -39,12 +39,12 @@ class OutfitsController < ApplicationController
   def destroy
     @outfit = Outfit.find(params[:id])
     @outfit.destroy
-    redirect_to 'index' 
+    redirect_to outfits_path 
   end
 
   private
 
   def outfit_params
-       params.require(:outfit).permit(:name, :temp, :rain, :user_id, :image_upload)
+       params.require(:outfit).permit(:name, :temp, :rain, :user_id, :gender, :image_upload)
   end
 end

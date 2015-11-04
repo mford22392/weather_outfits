@@ -25,6 +25,13 @@
     <%= f.radio_button :rain, false %><br>
   </div>
   <div class="field">
+    <p>Is this an outfit for a male or female??</p>
+    <%= label :male, 'Male' %>
+    <%= f.radio_button :gender, "male" %><br>
+    <%= label :female, 'Female' %>
+    <%= f.radio_button :gender, "female" %><br>
+  </div>
+  <div class="field">
     <%= f.file_field :image_upload %>
   </div>
   <br>

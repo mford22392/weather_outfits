@@ -2,7 +2,11 @@ Welcome!
 
 <%= form_tag ootd_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :location, params[:location] %>
+    <%= text_field_tag :location, params[:location], placeholder: "Enter a location (city or zip)", size: "30" %><br>
+    <%= label_tag :gender, 'Show me a male outfit' %>
+    <%= radio_button_tag :gender, 'male' %><br>
+    <%= label_tag :gender, 'Show me a female outfit' %>
+    <%= radio_button_tag :gender, 'female' %><br>
     <%= submit_tag "Search", :name => nil %>
   </p>
 
