@@ -32,6 +32,7 @@ gem 'twitter'
 gem 'rest-client'
 gem 'area'
 gem 'pry'
+gem 'twitter-text'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

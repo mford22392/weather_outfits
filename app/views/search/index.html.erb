@@ -19,13 +19,8 @@
 <%= render 'search_form' %>
 
 <ul>
-  <% @tweets.each do |tweet| %>
-    <% if tweet.text.include?("https") %>
-      <% link = tweet.text.split(" ").find do |word| %>
-        <% word.include?("https") %>
-      <% end %>
-      <li><a href ="<%= link %>" >Click for picture!</a></li>
-    <% end %>
+  <% @formatted_tweets.each do |tweet| %>
+    <li> <%= tweet.html_safe %></li><br>
   <% end %>
 </ul>
 

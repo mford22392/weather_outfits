@@ -1,10 +1,16 @@
+require 'twitter-text'
 
 class SearchController < ApplicationController
    #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
-
+include Twitter::Autolink
   def index
     @client = TwitterConnection.new(current_user).create_client
     @tweets = @client.search("#ootd").take(10)
+
+    @formatted_tweets = @tweets.map do |tweet|
+        auto_link(tweet.text)
+    end
+    
     @location = params[:location] || current_user.location.to_s
     weather = Weather.new(@location)
     @condition = weather.is_raining?
