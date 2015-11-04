@@ -3,7 +3,8 @@ class SearchController < ApplicationController
    #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
 
   def index
-    #client = Adapters::TwitterAdapter.new
+    @client = TwitterConnection.new(current_user).create_client
+    @tweets = @client.search("#ootd").take(10)
     @location = params[:location] || current_user.location.to_s
     weather = Weather.new(@location)
     @condition = weather.is_raining?

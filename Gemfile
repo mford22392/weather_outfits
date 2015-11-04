@@ -28,7 +28,10 @@ gem 'postgresql'
 gem 'barometer'
 gem 'barometer-yahoo'
 gem 'tweetstream'
+gem 'twitter'
+gem 'rest-client'
 gem 'area'
+gem 'pry'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -18,4 +18,16 @@
 <p> Not your location? Search for a different one: </p>
 <%= render 'search_form' %>
 
+<ul>
+  <% @tweets.each do |tweet| %>
+    <% if tweet.text.include?("https") %>
+      <% link = tweet.text.split(" ").find do |word| %>
+        <% word.include?("https") %>
+      <% end %>
+      <li><a href ="<%= link %>" >Click for picture!</a></li>
+    <% end %>
+  <% end %>
+</ul>
+
+
 
