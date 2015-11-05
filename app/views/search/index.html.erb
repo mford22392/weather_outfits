@@ -57,6 +57,10 @@
           </div>
 
           <div class="well well-sm" align="center">
+          <a href="#bottom" id="hulk">View The Top #ootd Tweets!</a>
+          </div>
+
+          <div class="well well-sm" align="center">
           Not your location? Search Again
           </div>
 
@@ -65,14 +69,21 @@
   <div class="col-md-4"></div>
 </div>
 
-        <%= render 'search_form' %>
+<%= render 'search_form' %>
 
-        <ul>
-          <% @tweets.each do |tweet| %>
-            <li> <%= tweet.html_safe %></li><br>
-          <% end %>
-        </ul>
+        
 
+<A NAME="bottom">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <ul>
+      <% @tweets.each do |tweet| %>
+        <p align="center"><%= tweet.html_safe %></p>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</a>
 
 
 </html>
