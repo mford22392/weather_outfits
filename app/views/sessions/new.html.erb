@@ -1,4 +1,25 @@
-<h1> Log In </h1>
-<%= render "/sessions/form" %>
-<p>New User? <%=link_to "Sign up now!", new_user_path%></p>
-<%= link_to "Log in to view your outfits!", login_path %>
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="container-fluid">
+
+  <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+
+
+		<%= render "/sessions/form" %>
+
+
+		<div class="well well-sm" align="center">
+		  New User? <%=link_to "Sign Up Now!", new_user_path%>
+		</div>
+
+		<div class="well well-sm" align="center">
+		  <%= link_to "Log In To View Your Outfits!", login_path %>
+		</div>
+
+	</div>
+    <div class="col-md-4"></div>
+  </div>
+</html>
