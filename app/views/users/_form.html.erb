@@ -1,43 +1,83 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %><br>
-  </div>
-  <div class="field">
-    <p>Gender</p>
-    <%= label :male, 'Male' %>
-    <%= f.radio_button :gender, 'male' %><br>
-    <%= label :female, 'Female' %>
-    <%= f.radio_button :gender, 'female' %><br>
-  </div>
-  <div class="field">
-    <br><%= f.label :password %><br>
-    <%= f.password_field :password %><br>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="actions">
-    <%= f.submit 'Sign Up' %>
+<div class="container-fluid">
+
+  <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+
+      <form class="form-horizontal" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="5GiJ+gaUwx7gjSIktKh3IV5PkRYjapcfRObwqSzmXQ4cYiR5MfO+3Ojo5SrutqiqVNSyk5+ZVDwCpkrYGNY2Iw==">
+        <fieldset>
+          <legend align="center">Sign Up</legend>
+
+          <div class="form-group">
+            <label for="name" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="name" placeholder="Name" name="user[name]">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="email" placeholder="Email" name="user[email]">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location" class="col-lg-2 control-label">Location</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="location" placeholder="Location" name="user[location]">
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-lg-2 control-label">Gender</label>
+              <div class="col-lg-10">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="user[gender]" id="male" value="male" checked="">
+                        Male
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="user[gender]" id="female" value="female">
+                        Female
+                  </label>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="password" placeholder="Email" name="user[password]">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirmation" class="col-lg-2 control-label">Password Confirmation</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="password_confirmation" placeholder="Email" name="user[password_confirmation]">
+            </div>
+          </div>
+          
+          
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="reset" class="btn btn-default">Cancel</button>
+              <button type="submit" class="btn btn-primary" name="commit">Sign Up</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      </div>
+    <div class="col-md-2"></div>
   </div>
-<% end %>
+</html>
+
