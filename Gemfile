@@ -33,6 +33,8 @@ gem 'rest-client'
 gem 'area'
 gem 'pry'
 gem 'twitter-text'
+gem 'twitter-bootswatch-rails', '~> 3.3.4'
+gem 'therubyracer'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

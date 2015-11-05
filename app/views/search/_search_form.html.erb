@@ -1,11 +1,58 @@
-<%= form_tag ootd_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :location, params[:location], placeholder: "Enter a location (city or zip)", size: "30" %><br>
-    <%= label_tag :gender, 'Show me a male outfit' %>
-    <%= radio_button_tag :gender, 'male' %><br>
-    <%= label_tag :gender, 'Show me a female outfit' %>
-    <%= radio_button_tag :gender, 'female' %><br>
-    <br><%= submit_tag "Search", :name => nil %>
-  </p>
+<!DOCTYPE html>
+<html lang="en">
 
-<% end %>
+<div class="container-fluid">
+
+	<div class="col-md-4"></div>
+
+		<div class="col-md-4">
+
+			<form class="form-horizontal", action="<%=ootd_path%>", method="get">
+			  <fieldset>
+			    <legend>Find an Outfit</legend>
+			    <div class="form-group">
+			      <label for="location" class="col-lg-2 control-label">Location</label>
+			      <div class="col-lg-10">
+			        <input type="text" class="form-control" id="location" placeholder="Zip Code", name="location">
+			      </div>
+			    </div>
+			  
+			    <div class="form-group">
+			      <label class="col-lg-2 control-label">Select Your Gender</label>
+			      <div class="col-lg-10">
+			        <div class="radio">
+			          <label>
+			            <input type="radio" name="gender" id="male" value="male" checked="">
+			            Male
+			          </label>
+			        </div>
+			        <div class="radio">
+			          <label>
+			            <input type="radio" name="gender" id="female" value="female">
+			            Female
+			          </label>
+			        </div>
+			      </div>
+			    </div>
+			  
+			    <div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-2">
+			        <button type="reset" class="btn btn-default">Cancel</button>
+			        <button type="submit" class="btn btn-primary">Submit</button>
+			      </div>
+			    </div>
+			  </fieldset>
+			</form>
+
+		</div>
+
+
+	<div class="col-md-4"></div>
+
+</div>
+
+
+</html>
+
+
+
