@@ -19,7 +19,7 @@
 <%= render 'search_form' %>
 
 <ul>
-  <% @formatted_tweets.each do |tweet| %>
+  <% @tweets.each do |tweet| %>
     <li> <%= tweet.html_safe %></li><br>
   <% end %>
 </ul>

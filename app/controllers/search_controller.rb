@@ -1,57 +1,33 @@
 require 'twitter-text'
 
 class SearchController < ApplicationController
-   #['super hot', 'hot', 'warm', 'cool', 'cold', 'freezing']
-include Twitter::Autolink
-  def index
-    @client = TwitterConnection.new(current_user).create_client
-    @tweets = @client.search("#ootd").take(10)
 
-    @formatted_tweets = @tweets.map do |tweet|
-        auto_link(tweet.text)
-    end
-    
+include Twitter::Autolink
+
+  def index
+    # TWITTER:
+    #get Twitter connection
+    @client = TwitterConnection.new(current_user).create_client
+    #search for OOTD hashtags and format the first 10
+    @tweets = @client.search("#ootd").take(10).map {|tweet| auto_link(tweet.text)}
+
+    #WEATHER:
+    #retrieve location from search or from user's stored location
     @location = params[:location] || current_user.location.to_s
+    #new weather object based on location
     weather = Weather.new(@location)
+
+    #WEATHER ATTRIBUTES
     @condition = weather.is_raining?
     @high_temp = weather.temp
     @low_temp = weather.low_temp
+
     @gender = params[:gender] || current_user.gender
+    
+    #retrieve proper outfit based on conditions and gender
     @outfit = Outfit.outfit(current_user, weather.temperature, @condition, @gender)
-    #@tweets = client.track("Pink Floyd")
   end
 
-    # if !@condition 
-    #   case weather.temperature
-    #     when 'super hot'
-    #         @outfit = Outfit.super_hot_outfit(current_user)
-    #     when "hot"
-    #       @outfit = Outfit.hot_outfit(current_user)
-    #     when 'warm'
-    #       @outfit = Outfit.warm_outfit(current_user)
-    #     when 'cool'
-    #       @outfit = Outfit.cool_outfit(current_user)
-    #     when 'cold'
-    #       @outfit = Outfit.cold_outfit(current_user)
-    #     else
-    #       @outfit = Outfit.freezing_outfit(current_user)
-    #   end
-    # else 
-    #   case weather.temperature
-    #     when 'super hot'
-    #         @outfit = Outfit.super_hot_rain_outfit(current_user)
-    #     when "hot"
-    #       @outfit = Outfit.hot_rain_outfit(current_user)
-    #     when 'warm'
-    #       @outfit = Outfit.warm_rain_outfit(current_user)
-    #     when 'cool'
-    #       @outfit = Outfit.cool_rain_outfit(current_user)
-    #     when 'cold'
-    #       @outfit = Outfit.cold_rain_outfit(current_user)
-    #     else
-    #       @outfit = Outfit.freezing_rain_outfit(current_user)
-    #     end
-    #   end
-    # end
+    
 end
 
