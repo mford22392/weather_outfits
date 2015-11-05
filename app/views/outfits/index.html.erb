@@ -1,5 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="container-fluid">
+
+  <div class="col-md-1"></div>
+
+    <div class="col-md-10">
+
+<ul class="row">
 <% @outfits.each do |outfit| %>
-  <a href="/outfits/<%=outfit.id%>">
-    <img src="<%=outfit.image_upload.url(:medium) %>" >
-  </a>
+  <ul class="col-xs-4" align="center"><a href="/outfits/<%=outfit.id%>">
+    <br><img src="<%=outfit.image_upload.url(:medium) %>" ><br>
+  </a></ul>
 <% end %>
+</ul>
+
+
+		</div>
+
+
+	<div class="col-md-4"></div>
+
+</div>
+
+
+</html>

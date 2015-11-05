@@ -1,15 +1,46 @@
-<!-- <img src= '<%= @outfit.image_upload.url %>' > -->
+<!DOCTYPE html>
+<html lang="en">
 
-<p><b>Outfit Name: </b> <%= @outfit.name %> </p>
-<%= image_tag @outfit.image_upload.url(:medium)%>
+<div class="container-fluid">
 
-<p><b> Outfit Details: </b></p>
-<ul>
-<li>This outfit is for <%= @outfit.temp %> weather.</li>
-<% if @outfit.rain == true %>
-  <li> This is a good outfit for the rain. </li>
-<% end %>
-</ul>
+  <div class="col-md-4"></div>
 
-<%= link_to "Edit this outfit", edit_outfit_path %>
-<%= link_to "Delete this outfit", "/outfits/#{@outfit.id}", method: :delete %>
+    <div class="col-md-4">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title" align="center">Outfit Name</h3>
+		  </div>
+		  <div class="panel-body" align="center">
+		    <%= @outfit.name.split.map(&:capitalize).join(' ') %>
+		  </div>
+		</div>
+
+		<div class="panel panel-default">
+		<div class="panel-body" align="center">
+		  <%= image_tag @outfit.image_upload.url(:medium)%>
+	  	</div>
+		</div>
+
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title" align="center">Outfit Details</h3>
+		  </div>
+		  <div class="panel-body" align="center">
+			<p>This outfit is for <%= @outfit.temp %> weather.</p>
+			<% if @outfit.rain == true %>
+	  			<p>This is a good outfit for the rain. </p>
+			<% end %>
+		  </div>
+		</div>
+
+		<div align="center">
+		<a href="<%=edit_outfit_path%>" class="btn btn-primary">Edit this outfit</a>
+		<a rel="nofollow" data-method="delete" href="/outfits/#{@outfit.id}" class="btn btn-danger">Delete this outfit</a>
+		</div>
+
+	</div>
+  <div class="col-md-4"></div>
+</div>
+				
+</html>
+

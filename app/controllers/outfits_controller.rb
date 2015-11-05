@@ -13,7 +13,6 @@ class OutfitsController < ApplicationController
     if @outfit.save
       redirect_to @outfit
     else
-      flash.now.alert = "There was a problem uploading your outfit. Please try again."
       render 'new'
     end
   end
