@@ -34,8 +34,8 @@
 		</div>
 
 		<div align="center">
-		<a href="<%=edit_outfit_path%>" class="btn btn-primary">Edit this outfit</a>
-		<a rel="nofollow" data-method="delete" href="/outfits/#{@outfit.id}" class="btn btn-danger">Delete this outfit</a>
+		<a href="<%=edit_outfit_path%>" class="btn btn-primary" action="<%=edit_outfit_path%>">Edit this outfit</a>
+		<a rel="nofollow" data-method="delete" href="/outfits/<%=@outfit.id%>" class="btn btn-danger">Delete this outfit</a>
 		</div>
 
 	</div>
