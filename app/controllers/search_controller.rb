@@ -15,17 +15,17 @@ include Twitter::Autolink
     #retrieve location from search or from user's stored location
     @location = params[:location] || current_user.location.to_s
     #new weather object based on location
-    weather = Weather.new(@location)
+    @weather = Weather.new(@location)
 
     #WEATHER ATTRIBUTES
-    @condition = weather.is_raining?
-    @high_temp = weather.temp
-    @low_temp = weather.low_temp
+    @condition = @weather.is_raining?
+    @high_temp = @weather.temp
+    @low_temp = @weather.low_temp
 
     @gender = params[:gender] || current_user.gender
     
     #retrieve proper outfit based on conditions and gender
-    @outfit = Outfit.outfit(current_user, weather.temperature, @condition, @gender)
+    @outfit = Outfit.outfit(current_user, @weather.temperature, @condition, @gender)
   end
 
     
