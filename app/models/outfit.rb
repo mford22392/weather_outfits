@@ -12,10 +12,10 @@ class Outfit < ActiveRecord::Base
 
 
   def self.outfit(current_user, temperature, rain_status, m_or_f)
-    if current_user
-      Outfit.where(user_id: current_user.id, temp: temperature , rain: rain_status, gender: m_or_f).sample
+    if current_user && Outfit.where(user_id: current_user.id, temp: temperature.split.map(&:capitalize).join(' ') , rain: rain_status, gender: m_or_f)
+      Outfit.where(user_id: current_user.id, temp: temperature.split.map(&:capitalize).join(' ') , rain: rain_status, gender: m_or_f).sample
     else
-      Outfit.where(user_id: 2, temp: temperature , rain: rain_status, gender: m_or_f).sample
+      Outfit.where(user_id: 2, temp: temperature.split.map(&:capitalize).join(' ') , rain: rain_status, gender: m_or_f).sample
     end
   end
 
