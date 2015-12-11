@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<div class="container-fluid">
-
-  <div class="col-md-1"></div>
-
-    <div class="col-md-10">
-
-<ul class="row">
-<% @outfits.each do |outfit| %>
-  <ul class="col-xs-4" align="center"><a href="/outfits/<%=outfit.id%>">
-    <br><img src="<%=outfit.image_upload.url(:medium) %>" ><br>
-  </a></ul>
-<% end %>
-</ul>
-
-
-		</div>
-
-
-	<div class="col-md-4"></div>
-
-</div>
-
-
+  <div class="container-fluid">
+    <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <% if @outfits.length > 0 %>
+          <ul class="row">
+          <% @outfits.each do |outfit| %>
+            <li class="col-xs-4" align="center"><a href="/outfits/<%=outfit.id%>">
+              <br><img src="<%=outfit.image_upload.url(:medium) %>" ><br>
+            </a></li>
+          <% end %>
+          </ul>
+        <% else %>
+          <p> Oops! You haven't uploaded any outfits yet! </p>
+        <% end %>
+  		</div>
+  	<div class="col-md-4"></div>
+  </div>
 </html>
