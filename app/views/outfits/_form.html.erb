@@ -33,6 +33,11 @@
             <%= f.radio_button :gender, "male" %><br>
             <%= label :female, 'Female' %>
             <%= f.radio_button :gender, "female" %><br><br>
+            <p><strong>Would you like this outfit to be visible to others?</strong></p>
+            <%= label :yes, 'Yes' %>
+            <%= f.radio_button :public_setting, true %><br>
+            <%= label :no, 'No' %>
+            <%= f.radio_button :public_setting, false %><br><br>
             <p><strong>Please select an image to upload:</strong></p>
             <%= f.file_field :image_upload%>
             <br>
