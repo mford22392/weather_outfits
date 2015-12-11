@@ -1,83 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <div class="container-fluid">
-
   <div class="col-md-2"></div>
-
     <div class="col-md-8">
+      <%= form_for @user do |f| %>
+        <div class="form-group" id="new_resource_body">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control" %>
+          <%= f.label :location %>
+          <%= f.text_field :location, class: "form-control" %>
+          <p>Gender</p>
+          <%= label :male, 'Male' %>
+          <%= f.radio_button :gender, 'male' %><br>
+          <%= label :female, 'Female' %>
+          <%= f.radio_button :gender, 'female' %><br>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+          <br>
 
-      <form class="form-horizontal" id="new_user" action="/users" accept-charset="UTF-8" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input type="hidden" name="authenticity_token" value="5GiJ+gaUwx7gjSIktKh3IV5PkRYjapcfRObwqSzmXQ4cYiR5MfO+3Ojo5SrutqiqVNSyk5+ZVDwCpkrYGNY2Iw==">
-        <fieldset>
-          <legend align="center">Sign Up</legend>
-
-          <div class="form-group">
-            <label for="name" class="col-lg-2 control-label">Name</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="name" placeholder="Name" name="user[name]">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email" class="col-lg-2 control-label">Email</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="email" placeholder="Email" name="user[email]">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="location" class="col-lg-2 control-label">Location</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="location" placeholder="Zip Code" name="user[location]">
-            </div>
-          </div>
-
-          <div class="form-group">
-              <label class="col-lg-2 control-label">Gender</label>
-              <div class="col-lg-10">
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="user[gender]" id="male" value="male" checked="">
-                        Male
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="user[gender]" id="female" value="female">
-                        Female
-                  </label>
-                </div>
-              </div>
-          </div>
-
-          <div class="form-group">
-            <label for="password" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-              <input type="password" class="form-control" id="password" placeholder="Password" name="user[password]">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="password_confirmation" class="col-lg-2 control-label">Password Confirmation</label>
-            <div class="col-lg-10">
-              <input type="password" class="form-control" id="password_confirmation" placeholder="Password" name="user[password_confirmation]">
-            </div>
-          </div>
-          
-          
-          <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-              <button type="reset" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary" name="commit">Sign Up</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-
-      </div>
-    <div class="col-md-2"></div>
+        <%= f.submit class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</html>
-
+</div>
