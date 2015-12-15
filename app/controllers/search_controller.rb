@@ -25,7 +25,7 @@ include Twitter::Autolink
     @gender = params[:gender] || current_user.gender
     
     #retrieve proper outfit based on conditions and gender
-    @outfit = Outfit.outfit(current_user, @weather.temperature, @condition, @gender)
+    @outfit = Outfit.outfit(current_user, @weather.temperature.downcase, @condition, @gender)
   end
 
     

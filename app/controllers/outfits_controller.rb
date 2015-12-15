@@ -43,6 +43,6 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-       params.require(:outfit).permit(:name, :temp, :rain, :user_id, :gender, :image_upload)
+       params.require(:outfit).permit(:name, :temp, :rain, :user_id, :gender, :image_upload, :public_setting)
   end
 end
